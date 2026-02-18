@@ -9,7 +9,7 @@ function App() {
 
   /* //yaha axios use krenge kuki ye backend ka data frontend me leker ane me help krega , or sath hi jis bhi api ki method chahiye hai usko axios ke aage . lga kar likh do such as get,post,delete  */
   function fetchNotes() {
-    axios.get('http://localhost:3000/api/notes')
+    axios.get('https://fullstack-note-taking-app.onrender.com/api/notes')
       .then((res) => {
         setNotes(res.data.notes)
       })
@@ -24,7 +24,7 @@ function App() {
     const { title, description } = e.target.elements
 
     /* Post for create => */
-    axios.post("http://localhost:3000/api/notes", {
+    axios.post("https://fullstack-note-taking-app.onrender.com/api/notes", {
       title: title.value,
       description: description.value
     })
@@ -36,7 +36,7 @@ function App() {
 
    /* Delete => */
   function handleDeleteNote(noteId) {
-    axios.delete("http://localhost:3000/api/notes/" + noteId)
+    axios.delete("https://fullstack-note-taking-app.onrender.com/api/notes/" + noteId)
       .then(() => {
         fetchNotes()//Refresh na krna pade
       })
@@ -54,7 +54,7 @@ function App() {
   }
 
   function handleSave() {
-    axios.patch(`http://localhost:3000/api/notes/${editNoteId}`, {
+    axios.patch(`https://fullstack-note-taking-app.onrender.com/api/notes/${editNoteId}`, {
       title: editedTitle,
       description: editedDescription
     }).then(() => {
